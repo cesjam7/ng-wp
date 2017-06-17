@@ -408,3 +408,6 @@ body {
 .site-heading h1 a {
     color: #fff;
 }
+.post-preview a {
+    cursor: pointer;
+}

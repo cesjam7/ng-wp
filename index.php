@@ -43,9 +43,15 @@
                     <li>
                         <a href="#!/">Inicio</a>
                     </li>
-                    <li>
-                        <a href="#!/insert">Insertar</a>
-                    </li>
+                    <?php if (is_super_admin()) { ?>
+                        <li>
+                            <a href="#!/insert">Insertar</a>
+                        </li>
+                        <li>
+                            <a href="#!/delete">Eliminar</a>
+                        </li>
+                        <?php
+                    } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -62,7 +68,7 @@
                     <div class="site-heading">
                         <h1><a href="#!/">NG WP</a></h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">WP Rest Api con AngularJS</span>
                     </div>
                 </div>
             </div>
@@ -80,7 +86,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="https://twitter.com/cesjam7">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -88,15 +94,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://pe.linkedin.com/in/cesjam7">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/cesjam7">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -104,7 +110,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Desarrollado por <a href="http://cesar.pe">César Aquino Maximiliano</a></p>
                 </div>
             </div>
         </div>

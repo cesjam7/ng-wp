@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div ng-if="mensaje" class="alert alert-success" ng-bind-html="mensaje | to_trusted"></div>
+            <div ng-repeat="post in posts">
+                <div class="post-preview" id="post-{{ post.id }}">
+                    <a ng-click="eliminar(post.id, post.title.rendered)">
+                        <h2 class="post-title">
+                            {{ post.title.rendered }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Eliminar
+                        </h3>
+                    </a>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

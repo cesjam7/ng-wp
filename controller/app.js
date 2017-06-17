@@ -14,6 +14,10 @@ app.config(['$routeProvider', function($routeProvider){
         controller: 'insert',
         templateUrl :  wp.template_url + '/view/insert.html',
     })
+    .when('/delete', {
+        controller: 'delete',
+        templateUrl :  wp.template_url + '/view/delete.html',
+    })
     .otherwise({
         redirectTo: '/'
     })
@@ -42,6 +46,16 @@ app.service('WpApi', function($http) {
                 'X-WP-Nonce': wp.nonce
             },
             url: wp.json + 'wp/v2/posts'
+        }).then(callback);
+    }
+
+    this.deletePost = function(id, callback) {
+        $http({
+            method: 'DELETE',
+            headers : {
+                'X-WP-Nonce': wp.nonce
+            },
+            url: wp.json + 'wp/v2/posts/' + id
         }).then(callback);
     }
 
@@ -75,6 +89,25 @@ app.controller('insert', function($scope, WpApi) {
             $('#contenido').val('');
             $scope.mensaje = 'El post <a href="#!/blog/'+response.data.slug+'">'+response.data.title.rendered+'</a> se registró correctamente';
         })
+    }
+
+})
+app.controller('delete', function($scope, WpApi) {
+
+    WpApi.listPosts(function(response) {
+        $scope.posts = response.data;
+    })
+
+    $scope.mensaje = false;
+    $scope.eliminar = function(id, title) {
+        $scope.mensaje = false;
+        let confirmar = confirm('Seguro que deseas eliminar el post "' + title + '"');
+        if (confirmar) {
+            WpApi.deletePost(id, function(response) {
+                $('#post-'+response.data.id).hide();
+                $scope.mensaje = 'El post "'+response.data.title.rendered+'" se eliminó correctamente';
+            })
+        }
     }
 
 })
