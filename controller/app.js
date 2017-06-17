@@ -1,4 +1,16 @@
-var app = angular.module("ng-wp", []);
+var app = angular.module("ng-wp", ['ngRoute']);
+
+app.config(['$routeProvider', function($routeProvider){
+	$routeProvider
+	.when('/', {
+        title : 'AngularFy',
+		templateUrl :  wp.template_url + '/view/home.html',
+	})
+	.otherwise({
+		redirectTo: '/'
+	})
+
+}]);
 
 app.service('WpApi', function($http) {
 
