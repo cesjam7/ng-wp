@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Registrar un post</p>
+            <div class="row control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>Titulo</label>
+                    <input type="text" class="form-control" placeholder="Titulo" id="titulo">
+                </div>
+            </div>
+            <div class="row control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                    <label>Contenido</label>
+                    <textarea rows="5" class="form-control" placeholder="Contenido" id="contenido"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <button type="button" class="btn btn-default" ng-click="insert()">Insertar</button>
+                </div>
+            </div>
+            <div ng-if="mensaje" class="alert alert-success" ng-bind-html="mensaje | to_trusted"></div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,4 @@
 <?php
-
 function configuracion_inicial(){
 
 	add_theme_support( 'post-thumbnails' );
@@ -17,8 +16,9 @@ function configuracion_inicial(){
     wp_enqueue_script( 'app-js', $uri_template.'/controller/app.js', array('angular-js'), '1.0', true);
 
     $wp = array(
-    	'url' => home_url(),
-        'template_url' => $uri_template
+        'template_url' => $uri_template,
+		'json' => esc_url_raw( rest_url() ),
+		'nonce' => wp_create_nonce( 'wp_rest' )
     );
     wp_localize_script( 'app-js', 'wp', $wp );
 
