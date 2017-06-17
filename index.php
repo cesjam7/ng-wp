@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app="ng-wp">
 
 <head>
 
@@ -14,15 +14,17 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo $uri_template; ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Theme CSS -->
     <link href="<?php echo $uri_template; ?>/assets/css/clean-blog.min.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<?php echo $uri_template; ?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+    <!-- Angular JS -->
+    <script src="<?php echo $uri_template; ?>/assets/js/angular.min.js"></script>
+    <script src="<?php echo $uri_template; ?>/assets/js/angular-route.min.js"></script>
+    <script src="<?php echo $uri_template; ?>/controller/app.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,7 +45,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html">NG WP {{ 2+2 }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
