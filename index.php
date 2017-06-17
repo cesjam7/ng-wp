@@ -11,6 +11,7 @@
 
     <title>Clean Blog</title>
     <?php $uri_template = get_bloginfo('template_url'); ?>
+    <?php wp_head(); ?>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo $uri_template; ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,20 +22,8 @@
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- Angular JS -->
-    <script src="<?php echo $uri_template; ?>/assets/js/angular.min.js"></script>
-    <script src="<?php echo $uri_template; ?>/assets/js/angular-route.min.js"></script>
-    <script src="<?php echo $uri_template; ?>/controller/app.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
-
-<body>
+<body <?php body_class(); ?>>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -87,60 +76,23 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" ng-controller="home">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                <div ng-repeat="post in posts">
+                    <div class="post-preview">
+                        <a href="post.html">
+                            <h2 class="post-title">
+                                {{ post.title.rendered }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                <div ng-bind-html="post.excerpt.rendered | to_trusted"></div>
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted on {{ post.date | date:"dd/MM/yyyy" }}</p>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -197,6 +149,7 @@
     <!-- Theme JavaScript -->
     <script src="<?php echo $uri_template; ?>/assets/js/clean-blog.min.js"></script>
 
+    <?php wp_footer(); ?>
 </body>
 
 </html>
