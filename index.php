@@ -16,7 +16,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo $uri_template; ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Theme CSS -->
-    <link href="<?php echo $uri_template; ?>/assets/css/clean-blog.min.css" rel="stylesheet">
+    <link href="<?php echo $uri_template; ?>/assets/css/clean-blog.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?php echo $uri_template; ?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -34,14 +34,14 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">NG WP {{ 2+2 }}</a>
+                <a class="navbar-brand" href="#!/">NG WP {{ 2+2 }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="#!/">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1><a href="#!/">NG WP</a></h1>
                         <hr class="small">
                         <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
                     </div>
